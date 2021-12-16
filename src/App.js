@@ -9,7 +9,7 @@ import Result from './Pages/Result/Result';
 function App() {
   return (
     <BrowserRouter>
-      <div className="app" style={{backgroundImage: 'url(./quiz-background.jpeg)'}}>
+      <div className="app" style={{backgroundImage: 'url(./quiz-background.png)'}}>
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
