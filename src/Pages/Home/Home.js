@@ -1,5 +1,6 @@
-import { TextField } from "@material-ui/core"
+import { MenuItem, TextField } from "@material-ui/core"
 import "./Home.css"
+import Categories, { } from '../../Data/Categories'
 
 const Home = () => {
     return (
@@ -19,7 +20,34 @@ const Home = () => {
                     select
                     label='Select category'
                     variant='outlined' 
-                    />
+                    >
+                        {
+                            Categories.map((cat) => (
+                                <MenuItem key={cat.category} value={cat.value}>
+                                    {cat.category}
+                                </MenuItem>
+                            ))
+                        }
+                    </TextField>
+
+                    <TextField
+                    select
+                    label='Select Difficulty'
+                    value={difficulty}
+                    onChange={(e) => setDifficulty(e.target.value)}
+                    variant='outlined'
+                    style={{ marginBottom: 30 }}
+                    >
+                        <MenuItem key='Easy' value='easy'>
+                            Easy
+                        </MenuItem>
+                        <MenuItem key='Medium' value='medium'>
+                            Medium
+                        </MenuItem>
+                        <MenuItem key='Hard' value='hard'>
+                            Hard
+                        </MenuItem>
+                    </TextField>
 
                 </div>
             </div>
