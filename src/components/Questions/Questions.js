@@ -16,7 +16,7 @@ const Questions = ({
     const handleSelect = (i) => {
         if(selected === i && selected === correct) {
             return "select";
-        } else if(selected === i && selected != correct ) {
+        } else if(selected === i && selected !== correct ) {
             return "wrong"
         } else if(i === correct) {
             return "select"
