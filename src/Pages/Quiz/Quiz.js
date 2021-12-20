@@ -1,4 +1,7 @@
+import './Quiz.css'
 import { useEffect, useState } from 'react'
+import { CircularProgress } from '@material-ui/core'
+import Questions from '../../components/Questions/Questions'
 
 const Quiz = ({ name, score, questions, setQuestions, setScore }) => {
 
@@ -23,10 +26,38 @@ const Quiz = ({ name, score, questions, setQuestions, setScore }) => {
     }
 
     return (
-        <div>
-            {name}
+        <div className="quiz">
+            <span className='subtitle'>Welcome, {name}</span>
+            {
+                questions ? (
+                    <>
+                        <div className='quizInfo'>
+                            <span>{questions[currQues].category}</span>
+                            <span>Score : {score}</span>
+                        </div>
+
+                        <Questions 
+                        currQues={currQues}
+                        setCurrQues={setCurrQues}
+                        questions={questions}
+                        options={options}
+                        correct={questions[currQues]?.correct_answer}
+                        score={score}
+                        setScore={setScore}
+                        setQuestions={setQuestions}
+                        />
+                    </>
+                ) : (
+                    <CircularProgress 
+                    style={{margin: 100}}
+                    color='inherit'
+                    size={150}
+                    thickness={1}
+                     />
+                )
+            }
         </div>
     )
 }
 
-export default Quiz
+export default Quiz;
