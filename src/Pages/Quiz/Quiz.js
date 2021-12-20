@@ -17,12 +17,12 @@ const Quiz = ({ name, score, questions, setQuestions, setScore }) => {
             ])
         );
 
-    }, [questions])
+    }, [questions, currQues])
 
     console.log(options)
 
-    const handleShuffle = (optionss) => {
-        return optionss.sort(()=> Math.random()-0.5)
+    const handleShuffle = (options) => {
+        return options.sort(()=> Math.random()-0.5)
     }
 
     return (
@@ -44,7 +44,6 @@ const Quiz = ({ name, score, questions, setQuestions, setScore }) => {
                         correct={questions[currQues]?.correct_answer}
                         score={score}
                         setScore={setScore}
-                        setQuestions={setQuestions}
                         />
                     </>
                 ) : (
