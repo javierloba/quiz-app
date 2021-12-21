@@ -49,7 +49,13 @@ const Questions = ({
         <div className="question">
             <h1>Question {currQues +1}</h1>
             <div className="singleQuestion">
-                <h2>{ questions[currQues].question }</h2>
+                <h2>{ questions[currQues].question
+                    .replace(/&#039;/gi, "'")
+                    .replace(/&quot;/gi, '"')
+                    .replace(/&pi;/gi, "π")
+                    .replace(/&eacute;/gi, "é" )
+                    .replace(/&rsquo;/gi, "'" )
+                }</h2>
 
                 <div className="options">
                     { error && <ErrorMessage>{error}</ErrorMessage> }
@@ -61,7 +67,12 @@ const Questions = ({
                             key={i}
                             disabled={selected}
                             >
-                                {i}
+                                {i.replace(/&#039;/gi, "'")
+                                .replace(/&quot;/gi, '"')
+                                .replace(/&pi;/gi, "π" )
+                                .replace(/&eacute;/gi, "é" )
+                                .replace(/&rsquo;/gi, "'" )
+                            }
                             </button>
                         ))
                     }

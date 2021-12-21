@@ -20,7 +20,7 @@ function App() {
         category && `&category=${category}`
       }${difficulty && `&difficulty=${difficulty}`}&type=multiple`
       )
-
+      
       setQuestions(data.results);
   }
 
